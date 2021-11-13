@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.detail.DetailFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/movieImage"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgIMDb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_imdb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movieImage" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_rates"
+                app:layout_constraintBottom_toBottomOf="@id/imgIMDb"
+                app:layout_constraintStart_toEndOf="@id/imgIMDb"
+                app:layout_constraintTop_toBottomOf="@id/movieImage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imgRates"
+                app:layout_constraintStart_toEndOf="@id/imgRates"
+                app:layout_constraintTop_toTopOf="@id/imgRates"
+                tools:text="7.8" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/10"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/txtRate"
+                app:layout_constraintStart_toEndOf="@id/txtRate"
+                app:layout_constraintTop_toTopOf="@id/txtRate" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDote"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="30dp"
+                android:background="#F5C518"
+                app:layout_constraintBottom_toBottomOf="@id/rate"
+                app:layout_constraintStart_toEndOf="@id/rate"
+                app:layout_constraintTop_toTopOf="@id/rate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/txtRate"
+                app:layout_constraintStart_toEndOf="@id/imgDote"
+                app:layout_constraintTop_toTopOf="@id/txtRate"
+                tools:text="15.06.2021" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtMovieName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/imgIMDb"
+                app:layout_constraintTop_toBottomOf="@id/imgIMDb"
+                tools:text="Moonrise Kingdom (2012)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtMovieDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtMovieName"
+                app:layout_constraintTop_toBottomOf="@id/txtMovieName"
+                tools:text="@tools:sample/lorem" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtSimilar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Similar Movies"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txtMovieName"
+                app:layout_constraintTop_toBottomOf="@id/txtMovieDesc" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSimilarMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtSimilar"
+                app:layout_constraintTop_toBottomOf="@id/txtSimilar"
+                tools:listitem="@layout/item_similar_movie" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
