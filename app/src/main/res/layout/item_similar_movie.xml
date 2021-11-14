@@ -6,40 +6,50 @@
 
     <data>
 
+        <variable
+            name="similarMovie"
+            type="com.yyusufsefa.movieapp.data.viewstate.SimilarItemViewState" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/itemCardView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_width="@dimen/keyline_120dp"
+        android:layout_height="@dimen/keyline_200dp"
+        android:layout_marginHorizontal="@dimen/keyline_8dp"
         android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+        app:cardCornerRadius="@dimen/keyline_16dp"
+        app:cardElevation="@dimen/keyline_4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_gravity="center_horizontal"
+            android:background="@color/color_item"
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgSimilarMovie"
+                imageUrl="@{similarMovie.imageUrl}"
                 android:layout_width="120dp"
-                android:layout_margin="8dp"
                 android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="4dp"
+                android:scaleType="centerCrop"
                 tools:src="@drawable/ic_launcher_background" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Isle of Dogs"
-                android:layout_marginStart="8dp"
-                android:layout_marginVertical="12dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/keyline_12dp"
+                android:layout_marginStart="@dimen/keyline_4dp"
+                android:layout_marginEnd="@dimen/keyline_4dp"
+                android:text="@{similarMovie.movieName}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Isle of Dogs lşkghfşghfglşhjflgh" />
 
         </LinearLayout>
 
