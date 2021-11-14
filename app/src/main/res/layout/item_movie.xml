@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="movieViewState"
+            type="com.yyusufsefa.movieapp.data.viewstate.MovieItemViewState" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,13 +26,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemConstraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/color_item">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgItemMovie"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
+                imageUrl="@{movieViewState.imageUrl}"
+                android:layout_width="@dimen/keyline_100dp"
+                android:layout_height="@dimen/keyline_100dp"
+                android:layout_margin="@dimen/keyline_8dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -39,10 +45,14 @@
                 android:id="@+id/txtMovieName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textSize="20sp"
+                android:layout_marginStart="@dimen/keyline_8dp"
+                android:layout_marginTop="@dimen/keyline_8dp"
+                android:text="@{movieViewState.movieName}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgItemMovie"
                 app:layout_constraintTop_toTopOf="@id/imgItemMovie"
                 tools:text="The Great Beauty (2012)" />
@@ -51,21 +61,24 @@
                 android:id="@+id/txtMovieDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
+                android:layout_marginStart="@dimen/keyline_8dp"
+                android:layout_marginTop="@dimen/keyline_8dp"
+                android:maxLines="2"
+                android:text="@{movieViewState.movieDesc}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toStartOf="@id/imgArrowRight"
                 app:layout_constraintStart_toEndOf="@id/imgItemMovie"
                 app:layout_constraintTop_toBottomOf="@id/txtMovieName"
-                tools:text="dfkgddfglikdgdgdfgfdgdfşkgjödfgdffdgdfgdf" />
+                tools:text="@tools:sample/lorem/random" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgArrowRight"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="4dp"
+                android:layout_width="@dimen/keyline_20dp"
+                android:layout_height="@dimen/keyline_20dp"
+                android:layout_marginStart="@dimen/keyline_8dp"
+                android:layout_marginEnd="@dimen/keyline_4dp"
                 android:src="@drawable/ic_arrow_right"
                 app:layout_constraintBottom_toBottomOf="@id/txtMovieDesc"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +89,10 @@
                 android:id="@+id/txtItemDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/keyline_12dp"
+                android:layout_marginBottom="@dimen/keyline_8dp"
+                android:text="@{movieViewState.movieReleaseDate}"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/imgArrowRight"

@@ -6,53 +6,60 @@
 
     <data>
 
+        <variable
+            name="sliderViewState"
+            type="com.yyusufsefa.movieapp.data.viewstate.SliderItemViewState" />
+
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/keyline_16dp"
+        app:cardElevation="@dimen/keyline_8dp">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp" >
+            android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgViewPager"
+                imageUrl="@{sliderViewState.imageUrl}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/ic_launcher_background" />
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="32dp"
-                android:layout_marginHorizontal="20dp"
-                android:orientation="vertical" >
+                android:layout_marginHorizontal="@dimen/keyline_20dp"
+                android:layout_marginBottom="@dimen/keyline_32dp"
+                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtVpName"
                     android:layout_width="match_parent"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="@{sliderViewState.movieName}"
                     tools:text="Moonrise Kingdom (2012)"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_marginTop="4dp"
                     android:id="@+id/txtVpDesc"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/keyline_4dp"
+                    android:text="@{sliderViewState.movieDesc}"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
-                    tools:text="Moonrise Kingdom (2012)"
-                    android:layout_height="wrap_content" />
+                    android:textSize="12sp"
+                    tools:text="Moonrise Kingdom (2012)" />
 
             </LinearLayout>
-            
+
         </FrameLayout>
 
     </com.google.android.material.card.MaterialCardView>

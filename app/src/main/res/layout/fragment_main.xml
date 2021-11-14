@@ -8,76 +8,84 @@
 
     </data>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScroll"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
+            android:background="@color/color_background"
+            android:id="@+id/nestedScroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".ui.main.MainFragment">
+            android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionSearch"
-                android:textCursorDrawable="@null"
-                app:iconifiedByDefault="false"
-                app:queryBackground="@null"
-                app:queryHint="search" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vpSlider"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp"
-                android:orientation="horizontal" />
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/into_tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                app:tabBackground="@drawable/tab_pager_selector"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtNotFound"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Sorry! Not Found"
-                android:textSize="20sp"
-                android:visibility="gone" />
-
-            <ProgressBar
-                android:id="@+id/prgLoading"
-                style="@android:style/Widget.ProgressBar.Inverse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                tools:visibility="visible" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMain"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_movie" />
+                android:background="@color/color_background"
+                android:orientation="vertical"
+                tools:context=".ui.main.MainFragment">
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_search"
+                    app:queryHint="search"
+                    app:searchHintIcon="@drawable/ic_search" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/keyline_200dp"
+                    android:layout_marginLeft="@dimen/keyline_4dp"
+                    android:layout_marginTop="@dimen/keyline_4dp"
+                    android:layout_marginRight="@dimen/keyline_4dp"
+                    android:orientation="horizontal" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/into_tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/keyline_4dp"
+                    android:layout_marginRight="@dimen/keyline_4dp"
+                    android:background="@color/color_tab"
+                    app:tabBackground="@drawable/tab_pager_selector"
+                    app:tabGravity="center" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtNotFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sorry! Not Found"
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/prgLoading"
+                    style="@android:style/Widget.ProgressBar.Inverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/keyline_4dp"
+                    android:layout_marginRight="@dimen/keyline_4dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_movie" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>
